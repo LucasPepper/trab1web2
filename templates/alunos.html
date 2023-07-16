@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<title>Aluno</title>
+<h1>Aluno</h1>
+
+{% for aluno in alunos %}
+   {{ aluno.nome }}
+{% endfor %}
+
+{% endblock %}

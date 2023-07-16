@@ -1,0 +1,30 @@
+{% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <title>Alunos</title>
+ </head>
+ <body>
+     <header>
+       <h1> <a href="http://127.0.0.1:8000/">Alunos</a> </h1>
+     </header>
+     <div class="container">
+     {% block content %}
+         <div class="details">
+         <p>Nome</p>
+         <p>{{ aluno.nome }}</p>
+         <p>Período de Ingresso</p>
+         <p>{{ matricula.periodoIngresso }}</p>
+         <p>Nota</p>
+         <p>{{ matricula.nota }}</p>
+         <p>Situação</p>
+         <p>{{ matricula.situacao }}</p>
+         </div>
+     {% endblock content %}
+     </div>
+ </body>
+ </html>
