@@ -2,11 +2,11 @@
 
 {% block content %}
 
-<title>Aluno</title>
-<h1>Aluno</h1>
+   <title>Alunos</title>
+   <h1>Alunos</h1>
 
-{% for aluno in alunos %}
-   {{ aluno.nome }}
-{% endfor %}
+   {% for aluno in alunos_list %}
+      <p>{{ aluno.nome }}</p>
+   {% endfor %}
 
 {% endblock %}
