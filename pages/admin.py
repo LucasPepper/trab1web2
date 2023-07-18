@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Aluno, Turma, TurmaAluno, Disciplina
+from .models import Aluno, Turma, Matricula, Disciplina
 
 # Register your models here.
 
@@ -9,4 +9,4 @@ class MatriculaAdmin(admin.ModelAdmin):
 admin.site.register(Aluno)
 admin.site.register(Turma)
 admin.site.register(Disciplina)
-admin.site.register(TurmaAluno)
+admin.site.register(Matricula)

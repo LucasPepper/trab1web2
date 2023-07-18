@@ -3,10 +3,18 @@
 {% block content %}
 
    <title>Alunos</title>
-   <h1>Alunos</h1>
 
-   {% for aluno in alunos_list %}
-      <p>{{ aluno.nome }}</p>
-   {% endfor %}
+   <ul>
+      <!-- Itera sobre alunos_list -->
+      {% for aluno in alunos_list %}
+      <!-- Display Alunos -->
+      <li><a href="http://127.0.0.1:8000/matricula/{{ aluno.id }}">{{ aluno.nome }}</li></a>
+   
+      <hr/>
+      <!-- Se alunos_list estiver vazia -->
+      {% empty %}
+         <li>Não há Alunos cadastrados.</li>
+      {% endfor %}
+   </ul>
 
 {% endblock %}

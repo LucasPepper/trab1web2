@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
  <!DOCTYPE html>
  <html lang="en">
@@ -10,19 +11,21 @@
  </head>
  <body>
      <header>
-       <h1> <a href="http://127.0.0.1:8000/">Alunos</a> </h1>
+       <h3> <a href="http://127.0.0.1:8000/">Alunos</a> </h1>
      </header>
      <div class="container">
      {% block content %}
          <div class="details">
-         <p>Nome</p>
-         <p>{{ aluno.nome }}</p>
-         <p>Período de Ingresso</p>
-         <p>{{ matricula.periodoIngresso }}</p>
-         <p>Nota</p>
+         <p><strong>Nome</strong></p>
+         <p>{{ matricula.aluno }}</p>
+         <p><strong>Turma</strong></p>
+         <p>{{ matricula.turma }}</p>
+         <p><strong>Período</strong></p>
+         <p>{{ matricula.turma.periodo }}</p>
+         <p><strong>Nota</strong></p>
          <p>{{ matricula.nota }}</p>
-         <p>Situação</p>
-         <p>{{ matricula.situacao }}</p>
+         <p><strong>Situação</strong></p>
+         <p>{{ matricula.situacao_aluno }}</p>
          </div>
      {% endblock content %}
      </div>

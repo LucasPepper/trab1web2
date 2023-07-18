@@ -9,12 +9,6 @@ SITUACAO_ALUNO_CHOICES = (
     ('Cancelado', 'CANCELADO'),
 )
 
-SITUACAO_TURMA_CHOICES = (
-    ('Aberta', 'ABERTA'),
-    ('Fechada', 'FECHADA'),
-    ('Cancelada', 'CANCELADA'),
-)
-
 CURSO_CHOICES = (
     ('bsi', 'BSI'),
     ('tads', 'TADS'),
@@ -59,25 +53,18 @@ class Turma(models.Model):
     disciplina = models.ForeignKey(Disciplina, on_delete=models.PROTECT, blank=True, null=True, default=1) # FK_ALUNO (Nº Matrícula)
     nome = disciplina.get_attname
     periodo = models.CharField(choices=PERIODO_CHOICES, max_length=15) # PK
-    data_abertura = models.DateField('Data')
 
     def __str__(self):
-        return f'{self.disciplina} {self.periodo} '
+        return f'{self.disciplina} '
     
-class TurmaAluno(models.Model):
+class Matricula(models.Model):
     aluno = models.ForeignKey(Aluno, on_delete=models.PROTECT) # FK_ALUNO (Nº Matrícula)
     turma = models.ForeignKey(Turma, on_delete=models.PROTECT) # FK_TURMA (Cód_Turma)
     nota = models.DecimalField('Nota', decimal_places=1, max_digits=3) # Cada aluno possui uma nota NAQUELA Turma
     situacao_aluno = models.CharField('Situação do Aluno', max_length=15, choices=SITUACAO_ALUNO_CHOICES) # Cada aluno possui uma situação NAQUELA Turma
 
     def __str__(self):
-        return f'{self.aluno} {self.turma} {self.nota} {self.situacao_aluno}  '
-
-# class Turma_Disciplina(models.Model):
-#     aluno = models.ForeignKey(to=Aluno, on_delete=) # FK_ALUNO (Nº Matrícula)
-#     turma = models.ForeignKey(to=Turma, on_delete=) # FK_TURMA (Cód_Turma)
-#     nota = models.DecimalField('Nota', decimal_places=1, max_digits=3) # Cada aluno possui uma nota NAQUELA Turma
-#     situacao_aluno = models.CharField('Situação do Aluno', max_length=15, choices=SITUACAO_ALUNO_CHOICES) # Cada aluno possui uma situação NAQUELA Turma
+        return f'{self.aluno} {self.turma} {self.turma.periodo} {self.nota} {self.situacao_aluno}  '
     
 class Contato(models.Model):
     nome = models.CharField('Nome', max_length=100)
